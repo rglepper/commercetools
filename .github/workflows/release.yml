@@ -17,10 +17,12 @@ jobs:
         id: set-next-ver
         with:
           script: |
-            const { version } = require('./lerna.json')
-            return version.replace(
+            const { version } = require('./lerna.json');
+            const ver = version.replace(
               /(\d+)\.(\d+)\.(\d+)/, (_, a, b, c) => a + '-' + (parseInt(b) + 1)
-            )      
+            );
+
+            return `release-${ver}`
       - run: |
           echo "Creating release branch... ${{steps.set-next-ver.outputs.result}}"
           

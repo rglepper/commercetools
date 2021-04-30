@@ -1,0 +1,11 @@
+{
+  "extends": "./../tsconfig.base.json",
+  "compilerOptions": {
+    "composite": true
+  },
+  "references": [
+    { "path": "@vue-storefront/core" },
+    { "path": "@vue-storefront/commercetools-api" }
+  ],
+  "include": ["src"],
+}

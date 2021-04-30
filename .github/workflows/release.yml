@@ -24,7 +24,8 @@ jobs:
 
             return `release-${ver}`
       - run: |
-          echo "Creating release branch... ${{steps.set-next-ver.outputs.result}}"
+          git checkout -b ${{steps.set-next-ver.outputs.result}}
+          yarn release-stable
           
 
   release_patch:

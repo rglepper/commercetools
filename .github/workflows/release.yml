@@ -2,8 +2,16 @@ name: Release
 on: workflow_dispatch
 
 jobs:
-  say_hello:
+  release_stable:
     runs-on: ubuntu-latest
+    if: ${{ github.ref == 'ref/head/master' }}
     steps:
     - run: |
-        echo "test workflow"
+        echo "test workflow master"
+
+  release_patch:
+    runs-on: ubuntu-latest
+    if: contains(github.ref, "release-")
+    steps:
+    - run: |
+        echo "test workflow release"

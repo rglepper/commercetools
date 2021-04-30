@@ -13,7 +13,7 @@ jobs:
         with:
           node-version: "12.x"
       - name: Creating release branch
-      - uses: actions/github-script@v4
+        uses: actions/github-script@v4
         id: set-next-ver
         with:
           script: |

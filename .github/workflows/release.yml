@@ -12,7 +12,7 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: "12.x"
-      - name: Creating release branch
+      - name: Releasing...
         uses: actions/github-script@v4
         id: set-next-ver
         with:
@@ -29,6 +29,10 @@ jobs:
           git checkout -b ${{steps.set-next-ver.outputs.result}}
           git push origin ${{steps.set-next-ver.outputs.result}}
           yarn release-stable --yes
+          git checkout master
+          git merge ${{steps.set-next-ver.outputs.result}}
+          git commit
+          git push origin master
           
 
   release_patch:

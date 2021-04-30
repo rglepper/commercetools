@@ -28,7 +28,7 @@ jobs:
           git config user.email github-actions@github.com
           git checkout -b ${{steps.set-next-ver.outputs.result}}
           git push origin ${{steps.set-next-ver.outputs.result}}
-          yarn release-stable
+          yarn release-stable --yes
           
 
   release_patch:

@@ -35,5 +35,16 @@ jobs:
     runs-on: ubuntu-latest
     if: contains(github.ref, 'release-')
     steps:
-    - run: |
-        echo "test workflow release"
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Setup node
+        uses: actions/setup-node@v1
+        with:
+          node-version: "12.x"
+      - name: Releasing...
+      - run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          yarn release-patch --yes
+          git checkout master
+          git push origin master

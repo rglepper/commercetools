@@ -4,7 +4,7 @@ on: workflow_dispatch
 jobs:
   release_stable:
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/head/master'
+    if: ${{ github.ref == 'refs/heads/master' }}
     steps:
     - run: |
         echo "test workflow master"

@@ -6,21 +6,21 @@ jobs:
     runs-on: ubuntu-latest
     if: ${{ github.ref == 'refs/heads/master' }}
     steps:
-      - name: Creating release branch
-        uses: actions/github-script@v4
-        id: set-next-ver
-        with:
-          script: |
-            const { version } = require('./lerna.json').version
-            return version.replace(
-              /(\d+)\.(\d+)\.(\d+)/, (_, a, b, c) => a + '-' + (parseInt(b) + 1)
-            )
       - name: Checkout code
         uses: actions/checkout@v1
       - name: Setup node
         uses: actions/setup-node@v1
         with:
           node-version: "12.x"
+      - name: Creating release branch
+        uses: actions/github-script@v4
+        id: set-next-ver
+        with:
+          script: |
+            const { version } = require('./lerna.json')
+            return version.replace(
+              /(\d+)\.(\d+)\.(\d+)/, (_, a, b, c) => a + '-' + (parseInt(b) + 1)
+            )      
       - run: |
           echo "Creating release branch... ${{steps.set-next-ver.outputs.result}}"
           

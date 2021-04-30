@@ -26,13 +26,9 @@ jobs:
       - run: |
           git config user.name github-actions
           git config user.email github-actions@github.com
+          yarn release-stable --yes
           git checkout -b ${{steps.set-next-ver.outputs.result}}
           git push origin ${{steps.set-next-ver.outputs.result}}
-          yarn release-stable --yes
-          git checkout master
-          git merge ${{steps.set-next-ver.outputs.result}}
-          git commit
-          git push origin master
           
 
   release_patch:

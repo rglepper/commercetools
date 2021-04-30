@@ -25,6 +25,7 @@ jobs:
             return `release-${ver}`
       - run: |
           git checkout -b ${{steps.set-next-ver.outputs.result}}
+          git push origin ${{steps.set-next-ver.outputs.result}}
           yarn release-stable
           
 

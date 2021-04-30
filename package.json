@@ -8,8 +8,8 @@
     "build": "lerna run build",
     "dev": "lerna run dev --parallel",
     "test": "lerna run test",
-    "release-patch": "lerna publish patch --registry=http://localhost:4873 --force-publish=*",
-    "release-stable": "lerna publish minor --registry=http://localhost:4873 --force-publish=*"
+    "release-patch": "lerna publish patch --skip-npm --force-publish=*",
+    "release-stable": "lerna publish minor --skip-npm --force-publish=*"
   },
   "devDependencies": {
     "@babel/core": "^7.10.5",

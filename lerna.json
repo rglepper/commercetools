@@ -1,4 +1,14 @@
 {
   "useWorkspaces": true,
-  "npmClient": "yarn"
+  "npmClient": "yarn",
+  "command": {
+    "publish": {
+      "message": "Release version: %s",
+      "registry": "http://localhost:4873"
+    }
+  },
+  "packages": [
+    "packages/**/*"
+  ],
+  "version": "1.2.0"
 }

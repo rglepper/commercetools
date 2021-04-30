@@ -7,7 +7,9 @@
   "scripts": {
     "build": "lerna run build",
     "dev": "lerna run dev --parallel",
-    "test": "lerna run test"
+    "test": "lerna run test",
+    "release-patch": "lerna publish patch --registry=http://localhost:4873 --force-publish=*",
+    "release-stable": "lerna publish minor --registry=http://localhost:4873 --force-publish=*"
   },
   "devDependencies": {
     "@babel/core": "^7.10.5",
@@ -28,7 +30,7 @@
     "eslint-plugin-vue": "^7.6.0",
     "husky": "^4.2.3",
     "jest": "^24.9.0",
-    "lerna": "^3.15.0",
+    "lerna": "^3.22.1",
     "lint-staged": "^10.0.7",
     "rimraf": "^3.0.2",
     "rollup": "^1.25.2",
